@@ -54,10 +54,9 @@ public class ParkingDataBaseIT {
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
         // Appeler ticket.getTicket() et vérifier qu'il soit bien en BDD
-
-        TicketDAO ticketDAO1 = new TicketDAO();
-        ticketDAO1.getTicket("ABCDEF");
-        assertNotNull(ticketDAO1);
+        ticketDAO.getTicket("ABCDEF");
+        assertNotNull(ticketDAO);
+        parkingSpotDAO.getNextAvailableSlot();
         //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
 
     }
