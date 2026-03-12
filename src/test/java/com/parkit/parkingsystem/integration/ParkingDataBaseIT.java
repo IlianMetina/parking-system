@@ -1,5 +1,6 @@
 package com.parkit.parkingsystem.integration;
 
+import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
@@ -56,7 +57,9 @@ public class ParkingDataBaseIT {
         // Appeler ticket.getTicket() et vérifier qu'il soit bien en BDD
         ticketDAO.getTicket("ABCDEF");
         assertNotNull(ticketDAO);
-        parkingSpotDAO.getNextAvailableSlot();
+        int nextSpot = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
+        // Vérifier que nextSpot != 1 car si nextSpot = 1, la voiture n'est pas correctement enregistrée
+        // car sinon available serait égal à 0
         //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
 
     }
