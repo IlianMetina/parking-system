@@ -49,6 +49,7 @@ public class ParkingDataBaseIT {
     @AfterAll
     public static void tearDown(){
 
+
     }
 
     @Test
@@ -60,6 +61,7 @@ public class ParkingDataBaseIT {
         assertNotNull(ticket);
         int nextSpot = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
         assertNotEquals(1, nextSpot);
+
         // Vérifier que nextSpot != 1 car si nextSpot = 1, la voiture n'est pas correctement enregistrée
         // car sinon available serait égal à 0
         //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
