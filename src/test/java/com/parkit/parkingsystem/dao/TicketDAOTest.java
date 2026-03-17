@@ -14,13 +14,14 @@ public class TicketDAOTest {
     private PreparedStatement ps;
 
     @Test
-    public void saveTicketTest(){
+    public void saveTicketTest() throws Exception{
+
 
 
     }
 
     @Test
-    public void getTicketTest(){
+    public void getTicketTest() throws Exception{
 
 
     }
